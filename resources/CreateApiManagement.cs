@@ -1,7 +1,7 @@
 ﻿using System;
 using AzureNative = Pulumi.AzureNative;
 
-namespace apim.ApiManagement;
+namespace apim.resources;
 
 public static class ApiManagement
 {

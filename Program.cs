@@ -2,7 +2,7 @@
 
 static void RunPulumi()
 {
-    var (rg, svc) = apim.ApiManagement.ApiManagement.Create();
+    var (rg, svc) = apim.resources.ApiManagement.Create();
 }
 
 return await Deployment.RunAsync(() =>
