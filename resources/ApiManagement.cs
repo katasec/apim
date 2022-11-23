@@ -1,5 +1,4 @@
-﻿using System;
-using AzureNative = Pulumi.AzureNative;
+﻿using AzureNative = Pulumi.AzureNative;
 
 namespace apim.resources;
 
@@ -7,8 +6,8 @@ public static class ApiManagement
 {
     public static (AzureNative.Resources.ResourceGroup, AzureNative.ApiManagement.ApiManagementService) Create()
     {
-        var resourceGroup = new AzureNative.Resources.ResourceGroup("mygroup");
-        var apiManagementService = new AzureNative.ApiManagement.ApiManagementService("rg-wu2-apim", new()
+        var resourceGroup = new AzureNative.Resources.ResourceGroup("mygroup-");
+        var apiManagementService = new AzureNative.ApiManagement.ApiManagementService("apim-", new()
         {
             PublisherEmail = "ameer.deen@katasec.com",
             PublisherName = "Ameer Deen",
@@ -19,6 +18,7 @@ public static class ApiManagement
                 Name = "Consumption",
             },
             VirtualNetworkType = "None",
+            Identity = new AzureNative.ApiManagement.Inputs.ApiManagementServiceIdentityArgs { Type = "SystemAssigned"}
         });
 
         return (resourceGroup, apiManagementService);
